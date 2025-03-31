@@ -1,223 +1,237 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Coloring Page 1</title>
-  <link rel="stylesheet" href="../global.css">
-  <style>
-    body {
-      text-align: center;
-      background: #00aaff;
-      margin: 0;
-      padding: 20px;
-      font-family: Arial, sans-serif;
-    }
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    /* Controls bar at the top */
-    .controls {
-      margin-bottom: 10px;
-    }
-    .controls button {
-      margin: 0 5px;
-      padding: 8px 12px;
-      font-size: 16px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      background: #f0f0f0;
-      color: #333;
-    }
-    .controls .color {
-      color: #fff;
-      border: 1px solid #ccc;
-    }
-    .canvas-container {
-      position: relative;
-      display: inline-block;
-    }
-    .canvas-container img {
-      width: 100%;
-      height: auto;
-      border: 2px solid #007BFF;
-      border-radius: 8px;
-      display: block;
-    }
-    #drawCanvas {
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 1;
-      /* Default cursor for drawing canvas */
-      cursor: url('https://img.icons8.com/material-outlined/24/000000/paint-brush.png'), auto;
-    }
-    .back-button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
-      border: none;
-      border-radius: 4px;
-      background: #007BFF;
-      color: #fff;
-      transition: background 0.3s ease;
-    }
-    .back-button:hover {
-      background: #0056b3;
-    }
-    /* Optional: Style the icons within the buttons */
-    .controls button img {
-      vertical-align: middle;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coloring Page 1</title>
+    <link rel="stylesheet" href="../global.css">
+    <style>
+        body {
+            text-align: center;
+            background: #00aaff;
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Controls bar at the top */
+        .controls {
+            margin-bottom: 10px;
+        }
+
+        .controls button {
+            margin: 0 5px;
+            padding: 8px 12px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .controls .color {
+            color: #fff;
+            border: 1px solid #ccc;
+        }
+
+        .canvas-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .canvas-container img {
+            width: 100%;
+            height: auto;
+            border: 2px solid #007BFF;
+            border-radius: 8px;
+            display: block;
+        }
+
+        #drawCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            touch-action: none;
+            /* Prevents page scrolling on mobile */
+            cursor: url('https://img.icons8.com/material-outlined/24/000000/paint-brush.png'), auto;
+        }
+
+        .back-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+            background: #007BFF;
+            color: #fff;
+            transition: background 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: #0056b3;
+        }
+
+        /* Optional: Style the icons within the buttons */
+        .controls button img {
+            vertical-align: middle;
+        }
+    </style>
 </head>
+
 <body>
-  <div class="container">
-    <h1>Coloring Page 1</h1>
+    <div class="container">
+        <h1>Coloring Page 1</h1>
 
-    <!-- Controls moved to the top -->
-    <div class="controls">
-      <!-- Preset Color Buttons -->
-      <button class="color" style="background:#ff0000;" data-color="#ff0000">Red</button>
-      <button class="color" style="background:#00ff00;" data-color="#00ff00">Green</button>
-      <button class="color" style="background:#0000ff;" data-color="#0000ff">Blue</button>
-      <button class="color" style="background:#000000;" data-color="#000000">Black</button>
-      <!-- Tool Buttons with Icons -->
-      <button class="pen">
-        <img src="https://img.icons8.com/material-outlined/24/000000/paint-brush.png" alt="Brush">
-      </button>
-      <button class="eraser">
-        <img src="https://img.icons8.com/material-outlined/24/000000/eraser.png" alt="Eraser">
-      </button>
+        <!-- Controls moved to the top -->
+        <div class="controls">
+            <!-- Preset Color Buttons -->
+            <button class="color" style="background:#ff0000;" data-color="#ff0000">Red</button>
+            <button class="color" style="background:#00ff00;" data-color="#00ff00">Green</button>
+            <button class="color" style="background:#0000ff;" data-color="#0000ff">Blue</button>
+            <button class="color" style="background:#000000;" data-color="#000000">Black</button>
+            <!-- Tool Buttons with Icons -->
+            <button class="pen">
+                <img src="https://img.icons8.com/material-outlined/24/000000/paint-brush.png" alt="Brush">
+            </button>
+            <button class="eraser">
+                <img src="https://img.icons8.com/material-outlined/24/000000/eraser.png" alt="Eraser">
+            </button>
+        </div>
+
+        <div class="canvas-container">
+            <img id="coloringPage" src="page-1.jpg" alt="Coloring Page 1">
+            <canvas id="drawCanvas"></canvas>
+        </div>
+        <button class="back-button" onclick="window.location.href='../index.html'">Back to Coloring Options</button>
     </div>
 
-    <div class="canvas-container">
-      <img id="coloringPage" src="page-1.jpg" alt="Coloring Page 1">
-      <canvas id="drawCanvas"></canvas>
-    </div>
-    <button class="back-button" onclick="window.location.href='../index.html'">Back to Coloring Options</button>
-  </div>
+    <script>
+        const img = document.getElementById('coloringPage');
+        const canvas = document.getElementById('drawCanvas');
+        const ctx = canvas.getContext('2d');
 
-  <script>
-    const img = document.getElementById('coloringPage');
-    const canvas = document.getElementById('drawCanvas');
-    const ctx = canvas.getContext('2d');
+        // Custom cursors
+        const brushCursor = "url('https://img.icons8.com/material-outlined/24/000000/paint-brush.png'), auto";
+        const eraserCursor = "url('https://img.icons8.com/material-outlined/24/000000/eraser.png'), auto";
 
-    // Custom cursors
-    const brushCursor = "url('https://img.icons8.com/material-outlined/24/000000/paint-brush.png'), auto";
-    const eraserCursor = "url('https://img.icons8.com/material-outlined/24/000000/eraser.png'), auto";
+        // Set up canvas dimensions once the image is loaded
+        img.onload = function () {
+            canvas.width = img.clientWidth;
+            canvas.height = img.clientHeight;
+        };
 
-    // Set up canvas dimensions once the image is loaded
-    img.onload = function() {
-      canvas.width = img.clientWidth;
-      canvas.height = img.clientHeight;
-    };
+        let drawing = false;
+        let currentTool = 'pen'; // "pen" or "eraser"
+        let currentColor = "#ff0000"; // default to red
+        const penLineWidth = 5;
+        const eraserLineWidth = 20;
+        let lastX = 0, lastY = 0;
 
-    let drawing = false;
-    let currentTool = 'pen'; // "pen" or "eraser"
-    let currentColor = "#ff0000"; // default to red
-    const penLineWidth = 5;
-    const eraserLineWidth = 20;
-    let lastX = 0, lastY = 0;
+        function startPosition(e) {
+            drawing = true;
+            [lastX, lastY] = [e.offsetX, e.offsetY];
+        }
 
-    function startPosition(e) {
-      drawing = true;
-      [lastX, lastY] = [e.offsetX, e.offsetY];
-    }
+        function finishedPosition() {
+            drawing = false;
+            ctx.beginPath();
+        }
 
-    function finishedPosition() {
-      drawing = false;
-      ctx.beginPath();
-    }
+        function draw(e) {
+            if (!drawing) return;
 
-    function draw(e) {
-      if (!drawing) return;
+            ctx.lineWidth = currentTool === 'pen' ? penLineWidth : eraserLineWidth;
+            ctx.lineCap = 'round';
+            ctx.lineJoin = 'round';
 
-      ctx.lineWidth = currentTool === 'pen' ? penLineWidth : eraserLineWidth;
-      ctx.lineCap = 'round';
-      ctx.lineJoin = 'round';
+            if (currentTool === 'pen') {
+                ctx.strokeStyle = currentColor;
+                ctx.globalCompositeOperation = 'source-over';
+            } else if (currentTool === 'eraser') {
+                ctx.globalCompositeOperation = 'destination-out';
+            }
 
-      if (currentTool === 'pen') {
-        ctx.strokeStyle = currentColor;
-        ctx.globalCompositeOperation = 'source-over';
-      } else if (currentTool === 'eraser') {
-        ctx.globalCompositeOperation = 'destination-out';
-      }
+            ctx.beginPath();
+            ctx.moveTo(lastX, lastY);
+            ctx.lineTo(e.offsetX, e.offsetY);
+            ctx.stroke();
+            [lastX, lastY] = [e.offsetX, e.offsetY];
+        }
 
-      ctx.beginPath();
-      ctx.moveTo(lastX, lastY);
-      ctx.lineTo(e.offsetX, e.offsetY);
-      ctx.stroke();
-      [lastX, lastY] = [e.offsetX, e.offsetY];
-    }
+        // Mouse events
+        canvas.addEventListener('mousedown', startPosition);
+        canvas.addEventListener('mouseup', finishedPosition);
+        canvas.addEventListener('mousemove', draw);
+        canvas.addEventListener('mouseout', finishedPosition);
 
-    // Mouse events
-    canvas.addEventListener('mousedown', startPosition);
-    canvas.addEventListener('mouseup', finishedPosition);
-    canvas.addEventListener('mousemove', draw);
-    canvas.addEventListener('mouseout', finishedPosition);
+        // Touch events for mobile devices
+        canvas.addEventListener('touchstart', function (e) {
+            e.preventDefault();
+            let touch = e.touches[0];
+            let rect = canvas.getBoundingClientRect();
+            lastX = touch.clientX - rect.left;
+            lastY = touch.clientY - rect.top;
+            drawing = true;
+        });
+        canvas.addEventListener('touchmove', function (e) {
+            e.preventDefault();
+            if (!drawing) return;
+            let touch = e.touches[0];
+            let rect = canvas.getBoundingClientRect();
+            let currentX = touch.clientX - rect.left;
+            let currentY = touch.clientY - rect.top;
 
-    // Touch events for mobile devices
-    canvas.addEventListener('touchstart', function(e) {
-      e.preventDefault();
-      let touch = e.touches[0];
-      let rect = canvas.getBoundingClientRect();
-      lastX = touch.clientX - rect.left;
-      lastY = touch.clientY - rect.top;
-      drawing = true;
-    });
-    canvas.addEventListener('touchmove', function(e) {
-      e.preventDefault();
-      if (!drawing) return;
-      let touch = e.touches[0];
-      let rect = canvas.getBoundingClientRect();
-      let currentX = touch.clientX - rect.left;
-      let currentY = touch.clientY - rect.top;
+            ctx.lineWidth = currentTool === 'pen' ? penLineWidth : eraserLineWidth;
+            ctx.lineCap = 'round';
+            ctx.lineJoin = 'round';
 
-      ctx.lineWidth = currentTool === 'pen' ? penLineWidth : eraserLineWidth;
-      ctx.lineCap = 'round';
-      ctx.lineJoin = 'round';
+            if (currentTool === 'pen') {
+                ctx.strokeStyle = currentColor;
+                ctx.globalCompositeOperation = 'source-over';
+            } else if (currentTool === 'eraser') {
+                ctx.globalCompositeOperation = 'destination-out';
+            }
 
-      if (currentTool === 'pen') {
-        ctx.strokeStyle = currentColor;
-        ctx.globalCompositeOperation = 'source-over';
-      } else if (currentTool === 'eraser') {
-        ctx.globalCompositeOperation = 'destination-out';
-      }
+            ctx.beginPath();
+            ctx.moveTo(lastX, lastY);
+            ctx.lineTo(currentX, currentY);
+            ctx.stroke();
+            lastX = currentX;
+            lastY = currentY;
+        });
+        canvas.addEventListener('touchend', function (e) {
+            drawing = false;
+            ctx.beginPath();
+        });
 
-      ctx.beginPath();
-      ctx.moveTo(lastX, lastY);
-      ctx.lineTo(currentX, currentY);
-      ctx.stroke();
-      lastX = currentX;
-      lastY = currentY;
-    });
-    canvas.addEventListener('touchend', function(e) {
-      drawing = false;
-      ctx.beginPath();
-    });
+        // Event delegation for preset color buttons
+        document.querySelector('.controls').addEventListener('click', function (e) {
+            if (e.target.classList.contains('color')) {
+                currentColor = e.target.getAttribute('data-color');
+                currentTool = 'pen';
+                canvas.style.cursor = brushCursor;
+            }
+        });
 
-    // Event delegation for preset color buttons
-    document.querySelector('.controls').addEventListener('click', function(e) {
-      if (e.target.classList.contains('color')) {
-        currentColor = e.target.getAttribute('data-color');
-        currentTool = 'pen';
-        canvas.style.cursor = brushCursor;
-      }
-    });
-
-    // Set tool buttons using icon clicks
-    document.querySelector('.pen').addEventListener('click', function() {
-      currentTool = 'pen';
-      canvas.style.cursor = brushCursor;
-    });
-    document.querySelector('.eraser').addEventListener('click', function() {
-      currentTool = 'eraser';
-      canvas.style.cursor = eraserCursor;
-    });
-  </script>
+        // Set tool buttons using icon clicks
+        document.querySelector('.pen').addEventListener('click', function () {
+            currentTool = 'pen';
+            canvas.style.cursor = brushCursor;
+        });
+        document.querySelector('.eraser').addEventListener('click', function () {
+            currentTool = 'eraser';
+            canvas.style.cursor = eraserCursor;
+        });
+    </script>
 </body>
+
 </html>
