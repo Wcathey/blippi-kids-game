@@ -12,6 +12,8 @@
       margin: 0;
       padding: 20px;
       font-family: Arial, sans-serif;
+      /* Optionally disable scrolling on the body if needed */
+      overflow: hidden;
     }
     .container {
       max-width: 800px;
@@ -51,7 +53,7 @@
       top: 0;
       left: 0;
       z-index: 1;
-      touch-action: none; /* Prevents page scrolling on mobile */
+      touch-action: none; /* Prevents default gestures on the canvas */
       cursor: url('https://img.icons8.com/material-outlined/24/000000/paint-brush.png'), auto;
     }
     .back-button {
@@ -158,7 +160,7 @@
     canvas.addEventListener('mousemove', draw);
     canvas.addEventListener('mouseout', finishedPosition);
 
-    // Touch events for mobile devices
+    // Touch events for mobile devices with passive: false
     canvas.addEventListener('touchstart', function (e) {
       e.preventDefault();
       const touch = e.touches[0];
@@ -166,7 +168,7 @@
       lastX = touch.clientX - rect.left;
       lastY = touch.clientY - rect.top;
       drawing = true;
-    });
+    }, { passive: false });
 
     canvas.addEventListener('touchmove', function (e) {
       e.preventDefault();
@@ -193,12 +195,12 @@
       ctx.stroke();
       lastX = currentX;
       lastY = currentY;
-    });
+    }, { passive: false });
 
     canvas.addEventListener('touchend', function (e) {
       drawing = false;
       ctx.beginPath();
-    });
+    }, { passive: false });
 
     // Event delegation for preset color buttons
     document.querySelector('.controls').addEventListener('click', function (e) {
