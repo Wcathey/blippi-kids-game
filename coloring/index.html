@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Coloring Pages</title>
+  <!-- Global styles for site-wide styling -->
+  <link rel="stylesheet" href="../global.css">
+  <!-- Local styles for coloring pages -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Coloring Pages</h1>
+  </header>
+  <main>
+    <!-- Container for coloring page thumbnails -->
+    <div id="coloringOptions">
+      <div class="coloring-option">
+        <a href="/coloring/page1.html">
+          <img src="page-1.jpg" alt="Coloring Page 1 Thumbnail">
+          <p>Coloring Page 1</p>
+        </a>
+      </div>
+      <div class="coloring-option">
+        <a href="/coloring/page2.html">
+          <img src="page-2.jpg" alt="Coloring Page 2 Thumbnail">
+          <p>Coloring Page 2</p>
+        </a>
+      </div>
+      <div class="coloring-option">
+        <a href="/coloring/page3.html">
+          <img src="page-3.jpg" alt="Coloring Page 3 Thumbnail">
+          <p>Coloring Page 3</p>
+        </a>
+      </div>
+    </div>
+    <!-- Back to Games Button -->
+    <button class="back-button" onclick="goBack()">Back to Games</button>
+  </main>
+
+  <script src="script.js"></script>
+  <script>
+    function goBack(){
+      window.location.href = "../games.html";
+    }
+  </script>
+</body>
+</html>

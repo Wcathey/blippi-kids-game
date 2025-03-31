@@ -1,0 +1,90 @@
+/* Container for the game content */
+#gameContainer {
+    text-align: center;
+    margin: 20px auto;
+    max-width: 600px;
+  }
+
+  /* Display for the color square */
+  #colorDisplay {
+    width: 150px;
+    height: 150px;
+    margin: 20px auto;
+    border: 2px solid #000;
+    border-radius: 8px;
+  }
+
+  /* Container for the color option buttons */
+  #options {
+    margin: 20px auto;
+  }
+
+  /* Style for each color option button */
+  .color-option {
+    padding: 15px 30px;           /* Larger clickable area */
+    margin: 10px;
+    font-size: 24px;              /* More readable text */
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.3s;
+    background-color: #fff;       /* White background for contrast */
+    text-transform: capitalize;
+  }
+
+  .color-option:hover {
+    transform: scale(1.05);
+  }
+
+  /* Feedback message styling */
+  #feedback {
+    font-size: 18px;
+    margin-top: 20px;
+    font-weight: bold;
+  }
+
+  /* Center the Back to Games button */
+  .back-button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    background-color: #007BFF;
+    color: #fff;
+    transition: background-color 0.3s ease;
+  }
+
+  .back-button:hover {
+    background-color: #0056b3;
+  }
+
+  /* Blippi logo styling */
+  .blippi-logo {
+    text-align: center;
+    margin: 20px auto;
+  }
+
+  .blippi-logo img {
+    max-width: 200px;
+    height: auto;
+    display: inline-block;
+  }
+
+  /* Full-screen overlay for the CORRECT! message */
+  #overlay {
+    display: none;              /* Hidden by default */
+    position: fixed;            /* Fixed so it overlays the viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    color: #fff;
+    font-size: 72px;
+    text-align: center;
+    line-height: 100vh;         /* Center text vertically */
+    z-index: 1000;              /* Ensure it's on top */
+  }

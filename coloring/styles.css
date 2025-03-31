@@ -1,0 +1,66 @@
+/* Basic styling for the Coloring Pages section */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: #00aaff; /* Consistent background */
+    margin: 0;
+    padding: 20px;
+    color: #333;
+  }
+
+  header h1 {
+    margin-bottom: 20px;
+  }
+
+  /* Container for coloring page options */
+  #coloringOptions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  /* Each coloring option */
+  .coloring-option {
+    width: 150px;              /* Thumbnail width */
+    border: 2px solid #007BFF;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    text-align: center;
+  }
+
+  .coloring-option:hover {
+    transform: scale(1.05);
+  }
+
+  .coloring-option img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .coloring-option p {
+    background: #ffaa00;
+    margin: 0;
+    padding: 5px;
+    font-size: 16px;
+    color: #fff;
+  }
+
+  /* Back button styling */
+  .back-button {
+    margin-top: 40px;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    background: #007BFF;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  .back-button:hover {
+    background: #0056b3;
+  }

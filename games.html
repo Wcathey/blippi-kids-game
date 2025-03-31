@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Games</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+      background: #00aaff;
+    }
+    #greeting {
+      font-size: 24px;
+      margin-bottom: 40px;
+    }
+    h2 {
+      margin-top: 20px;
+    }
+    /* Container for game options */
+    .game-options {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 4rem;
+    }
+    /* Each clickable game option */
+    .game-option {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none;
+      background: #fff;
+      border-radius: 4px;
+      padding: 10px;
+      width: 200px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+    .game-option:hover {
+      transform: scale(1.05);
+    }
+    .game-option img {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+      object-fit: contain;
+    }
+    .game-option .label {
+      margin-top: 10px;
+      font-size: 20px;
+      color: #007BFF;
+      text-align: center;
+    }
+    /* Responsive: smaller sizes for mobile */
+    @media screen and (max-width: 600px) {
+      .game-option {
+        width: 150px;
+      }
+      .game-option .label {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="greeting"></div>
+  <h2>Select a Mini-Game</h2>
+  <div class="game-options">
+    <div class="game-option" onclick="location.href='matching/index.html'">
+      <img src="matching/abc-bright.jpg" alt="Matching Game">
+      <div class="label">Matching Game</div>
+    </div>
+    <div class="game-option" onclick="location.href='learning/index.html'">
+      <img src="learning/blippi-colors.jpg" alt="Colors Game">
+      <div class="label">Colors</div>
+    </div>
+    <div class="game-option" onclick="location.href='coloring/index.html'">
+      <img src="coloring/color-logo.jpg" alt="Coloring Pages">
+      <div class="label">Coloring</div>
+    </div>
+  </div>
+
+  <script>
+    // Retrieve the "name" parameter from the URL and display the greeting.
+    const params = new URLSearchParams(window.location.search);
+    const userName = params.get('name') || 'Friend';
+    document.getElementById('greeting').textContent = "Hello " + userName + "!";
+  </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Learning Game - Pick the Correct Color</title>
+  <!-- Global styles for overall look -->
+  <link rel="stylesheet" href="../global.css">
+  <!-- Local styles for the learning game -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Learning Game</h1>
+  </header>
+  <main>
+    <div id="gameContainer">
+      <p>Pick the correct color that is displayed:</p>
+      <!-- Colored square display -->
+      <div id="colorDisplay"></div>
+      <!-- Options will be dynamically generated here -->
+      <div id="options"></div>
+      <!-- Feedback message (optional) -->
+      <div id="feedback"></div>
+    </div>
+    <!-- Blippi Logo -->
+    <div class="blippi-logo">
+      <img src="blippi-logo.png" alt="Blippi Logo">
+    </div>
+    <!-- Back to Games Button -->
+    <button class="back-button" onclick="goBack()">Back to Games</button>
+  </main>
+
+  <!-- Full-screen overlay for the CORRECT! message -->
+  <div id="overlay"></div>
+
+  <script src="script.js"></script>
+  <script>
+    // Navigate back to games.html when button is clicked
+    function goBack() {
+      window.location.href = "../games.html";
+    }
+  </script>
+</body>
+</html>

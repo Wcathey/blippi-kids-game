@@ -1,0 +1,49 @@
+/* matching/styles.css */
+
+/* Container for the game board */
+.game-board {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 800px; /* Increased max width for larger boxes */
+    margin: 20px auto;
+    padding: 10px;
+  }
+
+  /* Style for each card */
+  .card {
+    background-color: #e0e0e0;
+    width: 120px;         /* Increased width */
+    height: 120px;        /* Increased height */
+    margin: 15px;         /* Slightly increased margin for spacing */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5em;     /* Larger font size */
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+
+  /* Optional: Hover effect on cards */
+  .card:hover {
+    transform: scale(1.05);
+  }
+
+  /* Style for the Back button */
+  button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    background-color: #007BFF;
+    color: #fff;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {
+    background-color: #0056b3;
+  }
